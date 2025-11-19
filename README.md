@@ -1,103 +1,184 @@
-# Prática TDD 4
+📘 AgendaCloud – Sistema de Agenda de Contatos
 
-Desafio técnico para os alunos da disciplina "Desenvolvimento Web 3"
+O AgendaCloud é um sistema moderno de gerenciamento de contatos criado com Django e MongoDB (via MongoEngine).
+Ele permite cadastrar, listar, editar e excluir contatos em uma interface intuitiva, responsiva e estilizada com Bootstrap 5, utilizando autenticação de usuários nativa do Django.
+
+Este projeto une o poder do Django com a flexibilidade do MongoDB, oferecendo um CRUD rápido e eficiente em um ambiente seguro e escalável.
+
+🚀 Tecnologias Utilizadas
+🖥 Backend
+
+Python 3.x
+
+Django 5.x
+
+MongoDB + MongoEngine
+
+SQLite (para login e sessões)
+
+🎨 Frontend
+
+HTML5 / CSS3
+
+Bootstrap 5
+
+FontAwesome Icons
+
+📌 Principais Funcionalidades
+✔ Autenticação
+
+Login e Logout
+
+Proteção de rotas com login_required
+
+✔ Gestão de Contatos (MongoDB)
+
+Criar contato
+
+Editar contato
+
+Excluir contato
+
+Listar todos os contatos
+
+Listas separadas para edição e exclusão
+
+Formulários responsivos com layout moderno
+
+✔ Interface Moderna
+
+Cards centralizados
+
+Fundo em gradiente (tema escuro/azul)
+
+Botões estilizados
+
+Tabelas responsivas
+
+Ícones FontAwesome
+
+📂 Estrutura do Projeto
+AgendaCloud/
+│
+├── agenda/                # Configurações principais do Django
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── core/                  # Aplicação principal
+│   ├── models.py          # Modelo Agenda (MongoEngine)
+│   ├── forms.py           # Formulários
+│   ├── views.py           # Lógica do CRUD + Login
+│   ├── urls.py            # Rotas da aplicação
+│   ├── db_mongo.py        # Conexão com MongoDB
+│   └── templates/         # Arquivos HTML
+│       ├── index.html
+│       ├── login.html
+│       ├── listar_contatos.html
+│       ├── novo_contato.html
+│       ├── editar_contato.html
+│       ├── excluir_contato.html
+│       ├── lista_edita.html
+│       └── lista_exclui.html
+│
+├── db.sqlite3             # Banco padrão do Django (users, sessions)
+├── manage.py              # Executar e gerenciar o projeto
+└── requirements.txt       # Dependências
+
+⚙️ Instalação e Configuração
+1️⃣ Clone o repositório
+git clone https://github.com/SEU_USUARIO/AgendaCloud.git
+cd AgendaCloud
+
+2️⃣ Crie o ambiente virtual
+python -m venv venv
 
 
+Ative:
+
+Windows
+
+venv\Scripts\activate
 
 
-No ambiente Linux:
+Linux/macOS
 
-```console
-git clone https://github.com/orlandosaraivajr/Pratica_TDD_4.git
-cd Pratica_TDD_4/
-virtualenv -p python3 venv
 source venv/bin/activate
+
+3️⃣ Instale as dependências
 pip install -r requirements.txt
-cd agenda/
+
+🗄️ Configuração do MongoDB
+
+Edite o arquivo:
+
+core/db_mongo.py
+
+
+Exemplo de conexão:
+
+from mongoengine import connect
+
+def get_db():
+    return connect(
+        db='agenda_cloud',
+        host='mongodb://localhost:27017/agenda_cloud'
+    )
+
+
+Certifique-se de que o MongoDB está rodando:
+
+mongod
+
+🔧 Migre o banco SQLite (autenticação)
 python manage.py migrate
-python manage.py test
-coverage run --source='.' manage.py test 
-coverage html
-python manage.py createsuperuser
-python manage.py runserver
-```
 
-No ambiente Windows:
-
-```console
-git clone https://github.com/orlandosaraivajr/Pratica_TDD_4.git
-cd Pratica_TDD_4/
-virtualenv venv
-cd venv
-cd scripts
-activate.bat
-cd ..
-cd ..
-pip install -r requirements.txt
-cd agenda/
-python manage.py migrate
-python manage.py test
-coverage run --source='.' manage.py test 
-coverage html
+(opcional) Crie um usuário admin
 python manage.py createsuperuser
+
+▶️ Executar o projeto
 python manage.py runserver
 
-```
 
-Crie um superusuário com as seguintes credenciais:
+Acesse:
 
-- Username <b>admin</b>:
-- E-mail address <b>seu e-mail institucional</b>:
-- Password <b>fatec</b>:
+http://127.0.0.1:8000/
 
-### Requisitos da Sprint 1
+📖 Como funciona o CRUD do MongoEngine
+Modelo (MongoEngine)
+class Agenda(Document):
+    nome_completo = StringField(required=True)
+    email = StringField(required=True)
+    telefone = StringField()
+    observacao = StringField()
 
-<img src="caso_uso.png">
+Operações
+Ação	Método
+Criar	Agenda(...).save()
+Listar	Agenda.objects.all()
+Editar	Agenda.objects.get(id=id)
+Excluir	contato.delete()
+🖼️ Screenshots (adicione aqui)
+🔹 Tela de Login
 
-A expectativa do projeto é que tenha-se uma agenda. O que foi priorizado na primeira sprint foi o sistema de login/logout.
-O login somente pode ocorrer com o e-mail institucional @fatec.sp.gov.br 
-
-
-<img src="login.png">
-
-Imagem 1: Tela de Login
-
-<img src="index.png">
-
-Imagem 2: Tela index
-
-<img src="logout.png">
-Imagem 3: Tela logout
-
-## Requisitos para a Sprint 2
-
-Agora começa o seu desafio: desenvolver uma agenda de contatos completa com CRUD.
-
-Com base no modelo implementado (ver imagem abaixo), você deve:
-<img src="model.png">
+<img width="1179" height="823" alt="login" src="https://github.com/user-attachments/assets/192a2264-2afa-4d93-b7d2-b6ac0793469f" />
 
 
-✅ Criar um formulário para o modelo Agenda (pode usar Forms ou ModelForms);
+🔹 Lista de Contatos
 
-Implementar as seguintes funcionalidades:
-
-✅ Cadastrar contato
-
-✅ Listar contatos
-
-✅ Atualizar contato
-
-✅ Remover contato
-
-Proteger todas essas funcionalidades para que apenas usuários logados tenham acesso.
-
-Ao final da Sprint 2, o sistema deverá conter um CRUD funcional de contatos em Django.
+<img width="1133" height="554" alt="image" src="https://github.com/user-attachments/assets/c3fe37b4-024b-4ddb-91c3-6eae81ae6db1" />
 
 
-## Ajustes nos testes / novos testes
+🔹 Formulário de Edição
 
-O código fonte passará por atualizações para acomodar estes novos requisitos. Com isso, você deve ajudar os testes existentes e criar novos testes.
+<img width="790" height="771" alt="image" src="https://github.com/user-attachments/assets/0a47143c-5e2e-45d9-bb32-7920fff49799" />
 
-Você recebeu a sprint 1 com uma cobertura de teste acima de 90%. É esperado que ao final da sprint 2 a cobertura mantenha-se neste patamar.
 
-<img src="cobertura_testes.png">
+📝 Licença
+
+Este projeto é livre para uso pessoal, acadêmico e profissional.
+
+🤝 Contribuições
+
+Contribuições são bem-vindas!
+Abra um PR ou Issue caso deseje sugerir melhorias.
