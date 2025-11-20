@@ -61,9 +61,13 @@ Tabelas responsivas
 🎯 Objetivo do Projeto
 
 ✔ Demonstrar como utilizar MongoDB como banco de dados principal para entidades de negócio
+
 ✔ Exibir como o MongoEngine substitui o ORM padrão do Django
+
 ✔ Explorar CRUD real utilizando documentos MongoDB
+
 ✔ Integrar Django + MongoDB de maneira limpa e escalável
+
 ✔ Ensinar a estrutura correta para trabalhar com coleções MongoDB em apps Django
 
 
@@ -74,6 +78,7 @@ AgendaCloud/
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
+
 │
 ├── core/                  # Aplicação principal
 │   ├── models.py          # Modelo Agenda (MongoEngine)
@@ -90,6 +95,7 @@ AgendaCloud/
 │       ├── excluir_contato.html
 │       ├── lista_edita.html
 │       └── lista_exclui.html
+
 │
 ├── db.sqlite3             # Banco padrão do Django (users, sessions)
 ├── manage.py              # Executar e gerenciar o projeto
@@ -152,7 +158,7 @@ python manage.py runserver
 
 Acesse:
 
-http://127.0.0.1:8000/
+[http://127.0.0.1:8000/](http://127.0.0.1:8000/login/)
 
 📖 Como funciona o CRUD do MongoEngine
 Modelo (MongoEngine)
