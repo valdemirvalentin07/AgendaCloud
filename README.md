@@ -161,7 +161,7 @@ Excluir	contato.delete()
 🖼️ Screenshots (adicione aqui)
 🔹 Tela de Login
 
-<img width="1179" height="823" alt="login" src="https://github.com/user-attachments/assets/192a2264-2afa-4d93-b7d2-b6ac0793469f" />
+<img width="981" height="672" alt="image" src="https://github.com/user-attachments/assets/c1fe2a1b-ec59-45a9-ab28-6fc7b84bd42c" />
 
 
 🔹 Lista de Contatos
