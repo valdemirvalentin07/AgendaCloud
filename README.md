@@ -73,15 +73,23 @@ Tabelas responsivas
 
 Acesse:
 
-[http://127.0.0.1:8000/](http://127.0.0.1:8000/login/)
+(http://127.0.0.1:8000/login/)
 
 📖 Como funciona o CRUD do MongoEngine
+
+
+
 Modelo (MongoEngine)
 class Agenda(Document):
     nome_completo = StringField(required=True)
     email = StringField(required=True)
     telefone = StringField()
     observacao = StringField()
+
+
+
+
+
 
 Operações
 Ação	Método
