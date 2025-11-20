@@ -57,6 +57,16 @@ Tabelas responsivas
 
 Ícones FontAwesome
 
+
+🎯 Objetivo do Projeto
+
+✔ Demonstrar como utilizar MongoDB como banco de dados principal para entidades de negócio
+✔ Exibir como o MongoEngine substitui o ORM padrão do Django
+✔ Explorar CRUD real utilizando documentos MongoDB
+✔ Integrar Django + MongoDB de maneira limpa e escalável
+✔ Ensinar a estrutura correta para trabalhar com coleções MongoDB em apps Django
+
+
 📂 Estrutura do Projeto
 AgendaCloud/
 │
