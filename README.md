@@ -89,7 +89,7 @@ Criar	Agenda(...).save()
 Listar	Agenda.objects.all()
 Editar	Agenda.objects.get(id=id)
 Excluir	contato.delete()
-🖼️ Screenshots (adicione aqui)
+
 🔹 Tela de Login
 
 <img width="981" height="672" alt="image" src="https://github.com/user-attachments/assets/c1fe2a1b-ec59-45a9-ab28-6fc7b84bd42c" />
